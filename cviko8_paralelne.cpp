@@ -55,8 +55,8 @@ int main(int argc, char** argv) {
     MPI_Comm_rank(MPI_COMM_WORLD, &myrank);
 
 
-    nlocal = (n1 + 2) / nprocs + 1;
-    nlast = (n1 + 2) - (nprocs - 1) * nlocal;
+    nlocal = n1  / nprocs + 1;
+    nlast = n1 - (nprocs - 1) * nlocal;
 
     is = myrank * nlocal;
 
