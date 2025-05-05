@@ -55,8 +55,8 @@ int main(int argc, char** argv) {
     MPI_Comm_rank(MPI_COMM_WORLD, &myrank);
 
 
-    nlocal = n1 / nprocs + 1;
-    nlast = n1 - (nprocs - 1) / nlocal;
+    nlocal = (n1 + 2) / nprocs + 1;
+    nlast = (n1 + 2) - (nprocs - 1) * nlocal;
 
     is = myrank * nlocal;
 
@@ -362,6 +362,8 @@ int main(int argc, char** argv) {
         temp_res = 0.0;
         pom = 0.0;
         res = 0.0;
+        pom1 = 0.0;
+        res3 = 0.0;
 
         //tiez od istart po iend, kazdy proces si spocita svoje reziduum
         //kazdy bdue mat lokalne reziduum
